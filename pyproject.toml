@@ -2,7 +2,7 @@
 name = "hexlet-code"
 version = "0.1.0"
 description = ""
-authors = ["RozaTsy <ayara2015@mail.ru>"]
+authors = ["roza-ts <ayara2015@mail.ru>"]
 readme = "README.md"
 packages = [
        { include = "gendiff" },
