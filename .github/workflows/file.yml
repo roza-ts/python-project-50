@@ -21,7 +21,7 @@ jobs:
       - name: test coverage        
         uses: paambaati/codeclimate-action@v3.2.0
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          CC_TEST_REPORTER_ID: 53598ffc1c5c41f70e6b0fd22e77bd7befc6d4abd282b375148f29f384b82b71
         with:
           coverageCommand: pytest --cov=gendiff --cov-report xml tests/
           debug: true
