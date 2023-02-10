@@ -5,24 +5,29 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9]
     steps:
       - uses: actions/checkout@v3
-      - name: Install and run flake8
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
         run: |
-          pip install flake8 
-          flake8 gendiff
-          flake8 tests
-      - name: Install and run pytest and pytest-cov
+          pip install poetry
+          make install
+      - name: Run linter and tests
         run: |
-          pip install pytest 
-          pytest  
-          pip install pytest-cov  
-      - name: Publish code coverage        
+          make lint
+          make test
+      - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v3.2.0
+        if: github.ref_name == 'main'
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageCommand: pytest --cov=gendiff --cov-report xml tests/
+          coverageCommand: make test-coverage
           debug: true
-      
+

@@ -13,7 +13,7 @@ test:
 test-cov:
 	poetry run pytest --cov
 
-coverage:
+test-coverage:
 	poetry run pytest --cov=gendiff --cov-report xml tests/
 
 build:
