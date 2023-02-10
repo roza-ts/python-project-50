@@ -16,10 +16,9 @@ def file2():
 
 @pytest.fixture
 def file_string():
-    with open ("tests/fixtures/string.txt") as file:
+    with open("tests/fixtures/string.txt") as file:
         return ''.join(file.readlines())[:-1]
 
 
-def test_generate_diff(file1, file2, file_string):    
-        assert generate_diff(file1, file2) == file_string
-
+def test_generate_diff(file1, file2, file_string):
+    assert generate_diff(file1, file2) == file_string
