@@ -22,6 +22,6 @@ jobs:
           make install
       - name: Run linter and pytest
         run: |
-          #make lint
+          poetry add pytest
           make test
-
+         
