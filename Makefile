@@ -10,6 +10,12 @@ build:
 lint:
 	poetry run flake8 gendiff
 
+test:
+	 poetry run pytest
+
+test-cov:
+	poetry run pytest --cov
+
 publish:
 	poetry publish --dry-run
 
