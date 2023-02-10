@@ -22,7 +22,9 @@ jobs:
           make install
       - name: Run linter and tests
         run: |
+          poetry add -G dev flake8
           make lint
+          poetry add -G dev pytest
           make test
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v3.2.0
