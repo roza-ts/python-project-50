@@ -22,6 +22,6 @@ jobs:
           make install
       - name: Run linter and pytest
         run: |
-          poetry install flake8
+          poetry add --group dev flake8
           poetry run flake8 gendiff          
          
