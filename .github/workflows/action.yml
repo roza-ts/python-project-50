@@ -1,4 +1,4 @@
-name: file
+name: action
 
 on: push 
    
