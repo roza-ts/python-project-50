@@ -20,6 +20,14 @@ jobs:
         run: |
           pip install poetry
           make install
-      - run: pip install pytest 
-      - run: pytest         
+      - name: Install and run pytest
+        run: |
+          pip install pytest 
+          pytest  
+      - name: Install and run flake8
+        run: |
+          pip install flake8 
+          flake8 gendiff
+          flake8 tests
+       
          
