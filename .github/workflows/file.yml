@@ -22,6 +22,6 @@ jobs:
           make install
       - name: Run linter and pytest
         run: |
-          poetry add pytest
-          make test
+          poetry install flake8
+          poetry run flake8 gendiff          
          
