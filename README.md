@@ -6,3 +6,5 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/c4c509708ac3d799361f/maintainability)](https://codeclimate.com/github/roza-ts/python-project-50/maintainability)
 
 [![hexlet-check](https://github.com/roza-ts/python-project-50/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/roza-ts/python-project-50/actions/workflows/hexlet-check.yml)
+
+[![file](https://github.com/roza-ts/python-project-50/actions/workflows/file.yml/badge.svg)](https://github.com/roza-ts/python-project-50/actions/workflows/file.yml)

@@ -17,6 +17,12 @@ jobs:
         run: |
           pip install pytest 
           pytest  
-          pip install pytest-cov
-          pytest --cov=gendiff tests/
-         
+          pip install pytest-cov  
+      - name: test coverage        
+        uses: paambaati/codeclimate-action@v3.2.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: pytest --cov=gendiff --cov-report xml tests/
+          debug: true
+
