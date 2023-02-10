@@ -4,17 +4,17 @@ install:
 gendiff:
 	poetry run gendiff
 
-build:
-	poetry build
-
 lint:
 	poetry run flake8 gendiff
 
 test:
-	 poetry run pytest
+	poetry run pytest
 
 test-cov:
 	poetry run pytest --cov
+
+build:
+	poetry build
 
 publish:
 	poetry publish --dry-run
