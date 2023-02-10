@@ -21,7 +21,6 @@ jobs:
           make install
       - name: Run linter and tests
         run: |
-          poetry add flake8
           make lint
           make test
       - name: Test & publish code coverage
