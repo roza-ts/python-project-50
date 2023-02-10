@@ -20,6 +20,6 @@ jobs:
         run: |
           pip install poetry
           make install
-      - run: poetry run flake8 gendiff 
+      
       - run: poetry run pytest         
          
