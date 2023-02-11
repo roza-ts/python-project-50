@@ -1,9 +1,8 @@
-name: action
+name: main
 
 on: 
     - push 
-    - pull_request
-   
+    
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,9 +21,7 @@ jobs:
           make install
       - name: Run linter and tests
         run: |
-          #poetry update package flake8
           make lint
-          #poetry add -G dev pytest
           make test
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v3.2.0
