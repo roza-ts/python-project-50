@@ -8,3 +8,4 @@ __pycache__/
 /*.yaml
 .coverage
 coverage.xml
+some/
