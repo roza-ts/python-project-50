@@ -2,9 +2,16 @@ import json
 import yaml
 
 
-def parsing_data(path):
-    if path.endswith('.json'):
-        return json.load(open(path))
+formats = {
+          'json': json.load,
+          'yaml': yaml.safe_load,
+          'yml': yaml.safe_load
+          }
 
-    elif path.endswith('.yaml') or path.endswith('yml'):
-        return yaml.safe_load(open(path))
+
+def parsing_data(path):
+    _, form = path.split('.')
+
+    if form not in formats:
+        print()
+    return formats[form](open(path))
