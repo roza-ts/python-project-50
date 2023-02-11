@@ -11,10 +11,9 @@ formats = {
 
 def parsing_data(path):
     """
-    Сonverts files of different formats into a Python dictionary
+    Open files of json, yaml, yml formats
     """
     _, extension = path.split('.')
     if extension not in formats:
-        raise ValueError(f'Unsupported format. Next formats are supported:
-        {', '.join(formats)}')
+        raise ValueError('Unsupported format. Next formats are supported: {}'.format(', '.join(formats)))
     return formats[extension](open(path))
