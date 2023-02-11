@@ -6,6 +6,7 @@ __pycache__/
 /*.txt
 /*.json
 /*.yaml
+/*.yml
 .coverage
 coverage.xml
 some/
