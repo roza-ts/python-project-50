@@ -10,10 +10,10 @@ lint:
 test:
 	poetry run pytest
 
-test-coverage:
-	poetry run pytest --cov=gendiff --cov-report xml tests/
+test-cov:
+	poetry run pytest --cov=gendiff --cov-report xml
 
-test print:
+test-print:
 	poetry run pytest -s
 
 build:
@@ -28,4 +28,4 @@ package-install:
 package-install-force:
 	python3 -m pip install --user --force-reinstall dist/*.whl
 
-.PHONY: 
+.PHONY:
