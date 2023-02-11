@@ -9,7 +9,7 @@ formats = {
 }
 
 
-def parsing_data(path):
+def parse_data(path):
     """
     Open files of json, yaml, yml formats
     """

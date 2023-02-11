@@ -1,11 +1,11 @@
-from gendiff.parsing_data import parsing_data
+from gendiff.parsing_data import parse_data
 
 
 def generate_diff(path1, path2):
     # print(type(path1))
-    file1 = parsing_data(path1)
+    file1 = parse_data(path1)
     # print(type(file1))
-    file2 = parsing_data(path2)
+    file2 = parse_data(path2)
     dct = {}
 
     for key, value in file1.items():
