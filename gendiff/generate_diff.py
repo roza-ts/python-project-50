@@ -2,9 +2,9 @@ from gendiff.parsing_data import parsing_data
 
 
 def generate_diff(path1, path2):
-    #print(type(path1))
+    # print(type(path1))
     file1 = parsing_data(path1)
-    #print(type(file1))
+    # print(type(file1))
     file2 = parsing_data(path2)
     dct = {}
 

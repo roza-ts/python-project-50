@@ -6,7 +6,7 @@ formats = {
     'json': json.load,
     'yaml': yaml.safe_load,
     'yml': yaml.safe_load
-    }
+}
 
 
 def parsing_data(path):
@@ -15,5 +15,7 @@ def parsing_data(path):
     """
     _, extension = path.split('.')
     if extension not in formats:
-        raise ValueError('Unsupported format. Next formats are supported: {}'.format(', '.join(formats)))
+        raise ValueError(
+            'Unsupported format. Next formats are supported: {}'.format(
+                ', '.join(formats)))
     return formats[extension](open(path))
