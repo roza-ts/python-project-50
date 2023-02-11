@@ -1,0 +1,10 @@
+# created by virtualenv automatically
+.venv/
+dist/
+__pycache__/
+.pytest_cache/
+/*.txt
+/*.json
+/*.yaml
+.coverage
+coverage.xml
