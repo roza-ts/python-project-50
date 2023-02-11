@@ -1,17 +1,25 @@
-from gendiff import generate_diff
+import gendiff
 import pytest
 
 
 @pytest.fixture
 def file1():
-    file = "tests/fixtures/file1.json"
-    return file
+    return "tests/fixtures/file1.yaml"
 
 
 @pytest.fixture
 def file2():
-    file = "tests/fixtures/file2.json"
-    return file
+    return "tests/fixtures/file2.yml"
+
+
+@pytest.fixture
+def file1_json():
+    return "tests/fixtures/file1.json"
+
+
+@pytest.fixture
+def file2_json():
+    return "tests/fixtures/file2.json"
 
 
 @pytest.fixture
@@ -20,5 +28,9 @@ def file_string():
         return ''.join(file.readlines())[:-1]
 
 
-def test_generate_diff(file1, file2, file_string):
-    assert generate_diff(file1, file2) == file_string
+def test_generate_diff_yaml_yml(file1, file2, file_string):
+    assert gendiff.generate_diff(file1, file2) == file_string
+
+
+def test_generate_diff_json(file1_json, file2_json, file_string):
+    assert gendiff.generate_diff(file1_json, file2_json) == file_string
