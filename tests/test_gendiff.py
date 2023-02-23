@@ -23,14 +23,20 @@ def file2_json():
 
 
 @pytest.fixture
-def file_string():
-    with open("tests/fixtures/string.txt") as file:
+def result_stylish():
+    with open("tests/fixtures/result_stylish.txt") as file:
         return ''.join(file.readlines())[:-1]
 
 
-def test_generate_diff_yaml_yml(file1, file2, file_string):
-    assert gendiff.generate_diff(file1, file2) == file_string
+@pytest.fixture
+def result_plain():
+    with open("tests/fixtures/result_plain.txt") as file:
+        return ''.join(file.readlines())[:-1]
 
 
-def test_generate_diff_json(file1_json, file2_json, file_string):
-    assert gendiff.generate_diff(file1_json, file2_json) == file_string
+def test_generate_diff_stylish(file1, file2, result_stylish):
+    assert gendiff.generate_diff(file1, file2) == result_stylish
+
+
+def test_generate_diff_plain(file1_json, file2_json, result_plain):
+    assert gendiff.generate_diff(file1_json, file2_json, 'plain') == result_plain

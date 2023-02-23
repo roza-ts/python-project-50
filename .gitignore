@@ -10,3 +10,6 @@ __pycache__/
 .coverage
 coverage.xml
 some/
+tests/fixtures/flatt
+checking library.py
+checking.py
