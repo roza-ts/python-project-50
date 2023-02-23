@@ -1,23 +1,24 @@
 def plain(dct, begin=''):
     res = []
+    old_value = None
     for key, value in dct.items():
         if 'minus' in key or 'plus' in key:
             value = get_value(value)
-            key, inf = key.split()
-            if inf == 'minus_upd':
+            key, addition = key.split()
+            descriptions = {
+                'plus_upd': f"Property '{begin}{key}' was updated. From {old_value} to {value}",  # noqa
+                'minus': f"Property '{begin}{key}' was removed",
+                'plus': f"Property '{begin}{key}' was added with value: {value}"
+            }
+            if addition == 'minus_upd':
                 old_value = value
-            elif inf == 'plus_upd':
-                res.append(f"Property '{begin}{key}' was updated. From {old_value} to {value}")
-            elif inf == 'minus':
-                res.append(f"Property '{begin}{key}' was removed")
-            elif inf == 'plus':
-                res.append(f"Property '{begin}{key}' was added with value: {value}")
+            else:
+                res.append(descriptions[addition])
         else:
             if isinstance(value, dict):
-               begin += f'{key}.'
-               res.append(plain(value, begin))
-               begin = begin.replace(f'{key}.', '')
-
+                begin += f'{key}.'
+                res.append(plain(value, begin))
+                begin = begin.replace(f'{key}.', '')
     return '\n'.join(sorted(res))
 
 

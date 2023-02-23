@@ -39,4 +39,5 @@ def test_generate_diff_stylish(file1, file2, result_stylish):
 
 
 def test_generate_diff_plain(file1_json, file2_json, result_plain):
-    assert gendiff.generate_diff(file1_json, file2_json, 'plain') == result_plain
+    assert gendiff.generate_diff(
+        file1_json, file2_json, 'plain') == result_plain
