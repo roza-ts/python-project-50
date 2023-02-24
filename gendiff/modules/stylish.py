@@ -17,15 +17,15 @@ def stylish(dct, depth=1):
         else:
             addition = '   '
         fill = fill[:-3] + addition
-        res.append(fill + f'{key}:{value}')
+        res.append(fill + f'{key}: {value}')
     last_string = indent * (depth - 1) + '}'
     res.append(last_string)
     return '\n'.join(res)
 
 
 def normalize_value(value):
-    if value in (True, False, None):
+    if isinstance(value, (bool, type(None))):
         value = {True: 'true', False: 'false', None: 'null'}[value]
-    if value:
-        value = f' {value}'
+    # if value:
+    #    value = f' {value}'
     return value

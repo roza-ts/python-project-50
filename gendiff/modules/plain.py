@@ -23,8 +23,10 @@ def plain(dct, begin=''):
 
 
 def get_value(value):
-    if isinstance(value, dict):
+    if isinstance(value, (dict, list, set, tuple)):
         return '[complex value]'
-    if value in (True, False, None):
+    if isinstance(value, (bool, type(None))):
         return {True: 'true', False: 'false', None: 'null'}[value]
+    if isinstance(value, (int, float)):
+        return value
     return f"'{value}'"
