@@ -34,6 +34,12 @@ def result_plain():
         return ''.join(file.readlines())[:-1]
 
 
+@pytest.fixture
+def result_json():
+    with open("tests/fixtures/result_json.txt") as file:
+        return ''.join(file.readlines())[:-1]
+
+
 def test_generate_diff_stylish(file1, file2, result_stylish):
     assert gendiff.generate_diff(file1, file2) == result_stylish
 
@@ -41,3 +47,8 @@ def test_generate_diff_stylish(file1, file2, result_stylish):
 def test_generate_diff_plain(file1_json, file2_json, result_plain):
     assert gendiff.generate_diff(
         file1_json, file2_json, 'plain') == result_plain
+
+
+def test_generate_diff_json(file1, file2_json, result_json):
+    assert gendiff.generate_diff(
+        file1, file2_json, 'json') == result_json
