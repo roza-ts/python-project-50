@@ -1,10 +1,13 @@
+from gendiff.modules.stylish import normalize_value
+
+
 def plain(dct, begin=''):
     res = []
     old_value = None
     for key, value in dct.items():
         if 'minus' in key or 'plus' in key:
-            value = get_value(value)
             key, addition = key.split()
+            value = get_value(value)
             descriptions = {
                 'plus_upd': f"Property '{begin}{key}' was updated. From {old_value} to {value}",  # noqa
                 'minus': f"Property '{begin}{key}' was removed",
@@ -23,10 +26,9 @@ def plain(dct, begin=''):
 
 
 def get_value(value):
+    value = normalize_value(value)
     if isinstance(value, (dict, list, set, tuple)):
         return '[complex value]'
-    if isinstance(value, (bool, type(None))):
-        return {True: 'true', False: 'false', None: 'null'}[value]
-    if isinstance(value, (int, float)):
+    if isinstance(value, (int, float)) or value in ('true', 'false', 'null'):
         return value
     return f"'{value}'"

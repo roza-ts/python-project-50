@@ -7,17 +7,17 @@ def stylish(dct, depth=1):
             value = stylish(value, depth)
             depth -= 1
         value = normalize_value(value)
-        fill = indent * depth
+        filling = indent * depth
         if 'minus' in key or 'plus' in key:
-            key, inf = key.split()
-            if 'minus' in inf:
-                addition = ' - '
-            elif 'plus' in inf:
-                addition = ' + '
+            key, addition = key.split()
+            if 'minus' in addition:
+                extention = ' - '
+            elif 'plus' in addition:
+                extention = ' + '
         else:
-            addition = '   '
-        fill = fill[:-3] + addition
-        res.append(fill + f'{key}: {value}')
+            extention = '   '
+        filling = filling[:-3] + extention
+        res.append(filling + f'{key}: {value}')
     last_string = indent * (depth - 1) + '}'
     res.append(last_string)
     return '\n'.join(res)
@@ -26,6 +26,4 @@ def stylish(dct, depth=1):
 def normalize_value(value):
     if isinstance(value, (bool, type(None))):
         value = {True: 'true', False: 'false', None: 'null'}[value]
-    # if value:
-    #    value = f' {value}'
     return value

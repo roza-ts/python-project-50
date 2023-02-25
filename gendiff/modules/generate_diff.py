@@ -2,7 +2,7 @@ from gendiff.modules.diff import get_diff
 from gendiff.modules.stylish import stylish
 from gendiff.modules.plain import plain
 from gendiff.modules.json import get_json
-from gendiff.modules.parsing_data import parse_data
+from gendiff import parse_data
 
 
 def generate_diff(file_path1, file_path2, formatter=stylish):
